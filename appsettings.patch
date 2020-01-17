@@ -8,7 +8,7 @@
 -  }
 -}
 \ В конце файла нет новой строки
-+    "DefaultConnection": "DataSource=Data/app.db"
++    "DefaultConnection": "DataSource=Data/auth.db"
 +  },
 +  "Logging": {
 +    "LogLevel": {
