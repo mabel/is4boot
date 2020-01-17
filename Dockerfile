@@ -5,15 +5,3 @@ RUN dotnet new -i IdentityServer4.Templates
 RUN dotnet new is4ef --allow-scripts no
 RUN dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount -v 3.0.2
 RUN mkdir Data
-#COPY appsettings.patch /srv
-#COPY Startup.patch /srv
-#RUN apt-get update 
-#RUN apt-get install patch
-#RUN patch -p1 < Startup.patch
-#RUN patch -p1 < appsettings.patch 
-#RUN dotnet  build
-#COPY ./etc/secrets.json /srv
-#RUN dotnet user-secrets init
-#RUN cat secrets.json | dotnet user-secrets set
-#RUN rm secrets.json 
-#RUN dotnet  run /seed
