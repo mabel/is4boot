@@ -1,0 +1,37 @@
+--- is4ef/Startup.cs	2020-01-18 00:09:46.003403103 +0300
++++ Startup.cs	2020-01-18 00:05:19.000000000 +0300
+@@ -6,6 +6,7 @@
+ using IdentityServer4.Quickstart.UI;
+ using Microsoft.AspNetCore.Builder;
+ using Microsoft.AspNetCore.Hosting;
++using Microsoft.AspNetCore.Identity;
+ using Microsoft.Extensions.DependencyInjection;
+ using Microsoft.Extensions.Configuration;
+ using Microsoft.Extensions.Hosting;
+@@ -67,19 +68,13 @@
+                 });
+ 
+             // not recommended for production - you need to store your key material somewhere secure
+-            builder.AddDeveloperSigningCredential();
+-
+-            services.AddAuthentication()
+-                .AddGoogle(options =>
+-                {
+-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+-
+-                    // register your IdentityServer with Google at https://console.developers.google.com
+-                    // enable the Google+ API
+-                    // set the redirect URI to http://localhost:5000/signin-google
+-                    options.ClientId = "copy client ID from Google here";
+-                    options.ClientSecret = "copy client secret from Google here";
+-                });
++            //builder.AddDeveloperSigningCredential();
++            services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
++            {
++                    microsoftOptions.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
++                    microsoftOptions.ClientId = Configuration["Authentication:Client:Microsoft:Id"];
++                    microsoftOptions.ClientSecret = Configuration["Authentication:Client:Microsoft:Secret"];
++            });
+         }
+ 
+         public void Configure(IApplicationBuilder app)
