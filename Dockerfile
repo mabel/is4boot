@@ -17,4 +17,5 @@ RUN rm *.patch
 COPY ./etc/secrets.json /srv
 RUN dotnet publish -c Release
 ENTRYPOINT ["/bin/bash"]
-#ENTRYPOINT ["/usr/bin/dotnet", "run", "--urls", "http://0.0.0.0:5000"]
+# cd /srv/bin/Release/netcoreapp3.0/publish/ && ./srv --urls http://0.0.0.0:5000
+

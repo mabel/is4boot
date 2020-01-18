@@ -61,3 +61,31 @@ server {
     }
 }
 ```
+## Using in docker
+
+There is also Dockerfile. Use it to build an image:
+
+```bash
+sudo docker build . --tag is4boot:publish
+```
+
+Then run it:
+
+```bash
+sudo docker run -p 5000:5000 -v /path/to/auth.db/dir/:/srv/bin/Release/netcoreapp3.0/publish/Data -it is4boot:publish
+```
+After starting you can start IS4 as
+
+```bash
+cd /srv/bin/Release/netcoreapp3.0/publish/ && ./srv --urls http://0.0.0.0:5000
+```
+
+or create another docker-image with
+
+```docker
+FROM is4boot:publish
+WORKDIR /srv/bin/Release/netcoreapp3.0/publish/
+ENTRYPOINT ["./srv", "--urls", "http://0.0.0.0:5000"]
+```
+
+
