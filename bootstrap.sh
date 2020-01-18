@@ -11,4 +11,5 @@ cd is4ef
     cat ../etc/secrets.json | dotnet user-secrets set
     dotnet run /seed
     dotnet publish -c Release
-
+    cd ./is4ef/bin/Release/netcoreapp3.0/publish/
+    ln -s ../../../../Data/ .
