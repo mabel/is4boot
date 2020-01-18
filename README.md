@@ -2,7 +2,7 @@
 
 This script is intended to build an [IdentityServer4](http://docs.identityserver.io/en/latest/) instance with Microsoft Oauth2 authentication feature included.
 
-First, create the file `./etc/secrets.json` in this directory. It should contain records about your Azure application credentions:
+First, create the file `./etc/secrets.json`. It should contain records about your Azure application credentials:
 
 ```json
 {
@@ -17,7 +17,7 @@ Then you can run
 ./bootstrap.sh
 ```
 
-That will create `is4ef` directory with binary release of your server. Just go into `./is4ef/bin/Release/netcoreapp3.0/publish/` and run `./is4ef`.
+This script will create `is4ef` directory with binary release of your server. Just go into `./is4ef/bin/Release/netcoreapp3.0/publish/` and run `./is4ef`.
 
 Microsoft [recommends](https://docs.microsoft.com/ru-ru/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-3.1) also to create an ini-script for starting the servise and to configure Nginx as a proxy-server for IdentityServer4, that runs on port 5000. There is example configurations:
 
