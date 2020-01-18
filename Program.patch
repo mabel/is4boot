@@ -1,0 +1,20 @@
+--- is4ef/Program.cs	2020-01-18 03:18:50.146426438 +0300
++++ Program.cs	2020-01-19 00:11:43.832945803 +0300
+@@ -71,10 +71,14 @@
+ 
+         public static IHostBuilder CreateHostBuilder(string[] args) =>
+             Host.CreateDefaultBuilder(args)
++                .ConfigureAppConfiguration((hostingContext, config) =>
++                {
++                    config.AddJsonFile("secrets.json", optional: true, reloadOnChange: true);
++                })
+                 .ConfigureWebHostDefaults(webBuilder =>
+                 {
+                     webBuilder.UseStartup<Startup>();
+                     webBuilder.UseSerilog();
+                 });
+-    }
+-}
+\ В конце файла нет новой строки
++        }
++}
