@@ -1,4 +1,5 @@
-is4ef/**
-mvc-auth/**
-etc/secrets.json
+src/**
+etc/**
+tmp/**
+start.sh
 

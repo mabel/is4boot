@@ -1,6 +1,6 @@
---- is4ef/Program.cs	2020-01-18 03:18:50.146426438 +0300
-+++ Program.cs	2020-01-19 00:11:43.832945803 +0300
-@@ -71,10 +71,14 @@
+--- srv/Program.cs	2020-01-20 10:11:43.977100947 +0300
++++ Program.cs	2020-01-20 10:21:00.184766593 +0300
+@@ -18,6 +18,10 @@
  
          public static IHostBuilder CreateHostBuilder(string[] args) =>
              Host.CreateDefaultBuilder(args)
@@ -11,10 +11,3 @@
                  .ConfigureWebHostDefaults(webBuilder =>
                  {
                      webBuilder.UseStartup<Startup>();
-                     webBuilder.UseSerilog();
-                 });
--    }
--}
-\ В конце файла нет новой строки
-+        }
-+}
